@@ -3,6 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import TOPICLOGIN from '../assets/TOPICLOGIN.png';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function Login() {
     const navigate = useNavigate();
@@ -53,7 +54,7 @@ export default function Login() {
 
             console.log('user data', response_2.data)
 
-             navigate('/mainrunner');
+            navigate('/mainrunner');
 
 
         } catch (error) {
@@ -78,7 +79,7 @@ export default function Login() {
                     {loading ? 'Logging in...' : 'Login'}
                 </button>
                 <div className="divider"><span>ยังไม่มีบัญชี?</span></div>
-                <a href="/signup" className="signup-link">Sign up</a>
+                <Link to="/signup" className="signup-link">Sign up</Link>
             </form>
         </div>
     );

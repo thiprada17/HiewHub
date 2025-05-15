@@ -18,14 +18,19 @@ export default function App() {
     <Routes>
       <Route path='/' element={<SignIn />} />
       <Route path='/signup' element={<SignUp />} />
+      
       <Route path='/mainrunner' element={<MainRunner />} />
       <Route path='/mainfind' element={<MainFind />} />
+
       <Route path='/postrunner' element={<PostRunner />} />
       <Route path='/postfind' element={<PostFind />} />
+
       <Route path='/editrunner' element={<EditRunner />} />
       <Route path='/editfind' element={<EditFind />} />
+
       <Route path='/formfind' element={<FormFind />} />
       <Route path='/formrunner' element={<FormRunner />} />
+
       <Route path='/aboutus' element={<AboutUs />} />
       <Route path='/connect' element={<Connect />} />
     </Routes>

@@ -1,0 +1,322 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@font-face {
+  font-family: 'PG';
+  src: url('./public/PG.ttf');
+}
+
+@font-face {
+  font-family: 'Kanit';
+  src: url('Kanit-Regular.ttf');
+}
+
+:root {
+
+  /* background: linear-gradient(180.14deg, #faebff 7.74%, #FFFFFF 22.65%); */
+  background-color: #FEF4F5;
+  height: auto;
+  padding: 0;
+  margin: 0;
+
+}
+body {
+  display: block;
+  size: 10px;
+}
+
+.username-edit {
+  font-family: 'Kanit';
+    font-size: 24px;
+    color: rgb(0, 0, 0);
+}
+
+.topic-post {
+  font-family: 'PG';
+  color: black;
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+/* NAVBARS */
+
+.navbar {
+  margin: 1rem;
+  margin-left: auto;
+  margin-right: auto;  
+
+  width: 90%;
+  height: 3rem;
+
+  border: 0.1rem black solid;
+  border-radius: 1rem;
+  font-family: 'Kanit';
+
+}
+
+.navbar-link {
+  font-family: 'Kanit';
+  font-size: 1.3rem;
+  color: #6420d1;
+}
+
+.username-navbars {
+  font-family: 'Kanit';
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  display: block;
+  color: #000000;
+}
+
+.topbar {
+  width: 100%;
+}
+
+.logo {
+  margin-top: 1rem;
+  margin-bottom: auto;
+  text-align: center;
+
+  height: 5rem;
+
+  font-family: 'Margin DEMO';
+  font-style: normal;
+  font-size: 3rem;
+
+  color: #CFAFF8;
+  filter: drop-shadow(1px 1px  black);
+  /* color: #d1a1e4; */
+  /* filter: drop-shadow(1px 1px 1px rgb(0, 0, 0)); */
+}
+
+.menu {
+  font-family: 'Kanit';
+}
+
+
+
+
+/* TOPIC */
+
+.topic {
+  margin-top: 5rem;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.topic .img {
+  margin-left: auto;
+  margin-right: auto;
+
+  max-width: 50rem;
+  width: auto;
+  
+  filter: drop-shadow(2px 2px 2px rgb(183, 183, 183));
+}
+
+
+
+
+
+/* BUTTON */
+
+.button {
+  display: flex;
+  width: auto;
+
+  justify-content: center; 
+  gap: 2rem; 
+  margin: 5rem ;
+  margin-top: 0;
+}
+
+.bth-form.runner {
+  margin-left: auto;
+  margin-right: auto;
+
+  height: 5rem;
+  min-width: 20rem;
+  width: auto;
+
+  font-family: 'Kanit';
+  font-size: 1.5rem;
+
+  border: 3px dashed #D81A3E;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+
+  background: #FFD5F1;
+  color: #000000;
+  
+}
+
+.bth-form.find {
+  margin-left: auto;
+  margin-right: auto;
+
+  height: 5rem;
+  min-width: 20rem;
+  width: auto;
+
+  font-family: 'Kanit';
+  font-size: 1.5rem;
+
+  border: 3px dashed #6C7BCC;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+
+  background: #C0DEFF;
+  color: #000000;
+  
+}
+
+.bth-form.runner.link-animate-button:hover {
+  border: 3px dashed #4d0b17;
+  background: #C671AA;
+  color: #ffffff;
+}
+
+.bth-form.find.link-animate-button:hover {
+  border: 3px dashed #190b4d;
+  background: #456F9D;
+  color: #ffffff;
+}
+
+
+a {
+  display: flex;
+}
+
+
+
+
+/* RUNNER CONTAINER PART */
+
+.runner {
+  display: block;
+  font-family: 'PG';
+}
+
+
+.bth-runner {
+  align-items: center;
+  margin-left: 5%;
+  left: 1rem;
+  padding: 12px 16px;
+
+  width: 13rem;
+  height: 4.5rem;
+
+  background: #FFFFFF;
+  color: #D81A3E;
+
+  border: 2px solid #000000;
+  border-bottom: none; 
+  border-radius: 8px 8px 0 0; 
+  border-top-left-radius: 20px;
+  border-top-right-radius: 60px 40px;
+
+  font-size: 1.45rem;
+}
+
+
+.runner-container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5rem;
+  padding-bottom: 10rem;
+  padding: 12px 16px;
+
+  min-height: 100rem;
+  max-height: auto;
+  width: 90%;
+
+  background: #FFFFFF;
+
+  border: 2px solid #000000;
+  border-radius: 0rem 0rem 5rem 5rem;
+}
+
+.runner-card {
+  margin-bottom: 1rem;
+  width: 100%;
+  height: 15rem;
+  border: 1px black solid; 
+  border-radius: 1rem;
+  box-shadow: 2px 2px black;
+  color: #000000;
+  font-family: 'Kanit';
+}
+
+.runner-card.post {
+  margin-bottom: 1rem;
+  width: 100%;
+  height: 11rem;
+}
+
+.runner-info-card {
+  position: relative;
+}
+
+.runner-card-find-price {
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+
+/* FIND CONTAINER PART */
+
+.find-container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5rem;
+  padding: 12px 16px;
+
+  min-height: 100rem;
+  max-height: auto;
+  width: 90%;
+
+  background: #ECEDFF;
+
+  border: 2px solid #000000;
+  border-radius: 0rem 0rem 5rem 5rem;
+}
+
+
+.bth-find {
+  right: 0;
+  position: absolute;
+  align-items: center;
+  margin-right: 5%;
+  padding: 12px 16px;
+
+  width: 15rem;
+  height: 4.5rem;
+
+  font-size: 1.45rem;
+
+  background: #ECEDFF; 
+  color: #6C7BCC;
+
+  border: 2px solid #000000;
+  border-bottom: none; 
+  border-radius: 8px 8px 0 0;
+  border-top-left-radius: 60px 40px;
+  border-top-right-radius: 20px;
+}
+
+
+.link-animate-button {
+  transition-duration: 0.2s;
+}
+
+.link-animate-button:hover {
+  color: #6c6c6c;
+  background-color: #e2e2e2;
+}
+
+

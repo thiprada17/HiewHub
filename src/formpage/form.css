@@ -1,0 +1,191 @@
+@font-face {
+    font-family: 'pg newport'; 
+    src: url('./public/PG.ttf'); 
+}
+
+@font-face {
+    font-family: 'kanit';
+    src: url('../Kanit-Regular.ttf');
+}
+
+
+.body  {
+    background-color: #f4cdff;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  
+    overflow-y: auto;
+}
+
+.body.runner {
+    background-color: #feeb9e;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  
+    overflow-y: auto;
+}
+
+.box {
+    justify-content: center;
+    width: 1000px;
+    max-width: 95%;
+    margin: 60px auto;
+    background-color: #ECEDFF;
+    border: 1.5px solid black;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 3px 3px 10px #636363;
+}
+
+.box.runner {
+    width: 1000px;
+    max-width: 95%;
+    background-color: #FDEEF1;
+}
+
+.header {
+    font-family: 'pg newport';
+    font-size: 30px;
+    text-align: center;
+    color: black;
+    margin-top: 15px;
+    margin-bottom: 35px;
+}
+
+.box-form {
+    width: 100%;
+    margin: auto;
+}
+
+.form {
+    margin-bottom: 30px;
+}
+
+.topic-form {
+    font-family: 'kanit';
+    font-size: 25px;
+    margin-bottom: 8px;
+    color: #000;
+}
+
+.fill-from {
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    padding: 10px 15px;
+    font-size: 18px;
+    border: 1px solid #000;
+    border-radius: 20px;
+    background: #FFFFFF;
+    font-family: 'kanit';
+}
+
+.back {
+    font-family: 'Kanit';
+    font-size: 1.5rem;
+    margin: 1.5rem;
+    color: #000000;
+    top: 0;
+}
+
+.rubhiew-from::placeholder {
+    font-family: 'kanit';
+    font-size: 18px;
+    color: #888;
+}
+
+.submit-btn {
+    font-family: 'pg newport';
+    font-size: 27px;
+    padding: 12px 0;
+    width: 60%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
+    border: 2px solid #352977;
+    background-color: #7882C1;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 2px 2px 6px #444;
+    transition: 0.2s;
+}
+
+.submit-btn.runner {
+    border: 2px solid #830019;
+    background-color: #EE4166;
+}
+
+.submit-btn:hover {
+    background-color: #5a65a0;
+}
+
+.submit-btn.runner:hover {
+    background-color: #cf3c5c;
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+  }
+
+.topic-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.message {
+    color: #000;
+    margin-bottom: 50px;
+    height: 4.5rem;
+    border: 1px black solid;
+    border-radius: 20px;
+    padding: 10px;
+    filter: drop-shadow(2px 2px black);
+    display: none;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Kanit';
+}
+
+.message.danger {
+    display: block;
+    background-color: #fbcfcf;
+}
+
+.message.success {
+    display: block;
+    background-color: #cffbf1;
+}
+
+@media (max-width: 768px) {
+    .box {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .box-2 {
+        width: 100%;
+    }
+
+    .rubhiew-from {
+        font-size: 16px;
+    }
+
+    .topic-form {
+        font-size: 20px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        font-size: 18px;
+    }
+}

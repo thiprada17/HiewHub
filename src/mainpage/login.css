@@ -1,0 +1,133 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@font-face {
+    font-family: 'pg newport' ;
+    src: url('./PG.ttf');
+    
+}
+
+@font-face {
+  font-family: 'Kanit';
+  src: url('Kanit-Regular.ttf');
+}
+
+.body-login {
+  background-color: #f3e3f9;
+  font-family: 'Kanit', sans-serif;
+  display: flex;
+  flex-direction: column;  /* จัดแนวตั้ง */
+  align-items: center;     /* จัดให้อยู่กึ่งกลางแนวนอน */
+  justify-content: center; /* จัดให้แนวดิ่งอยู่ตรงกลาง */
+  height: 100vh;
+  padding: 20px;
+}
+
+.logo-login {
+  width: 80%;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.login-box {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 40px;
+  width: 70%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* ทำให้ input ทั้งสองช่องกว้างเท่าปุ่ม */
+input[type="text"].username,
+input[type="email"],
+input[type="password"],
+.login-btn,
+.signup-link {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* สไตล์ช่องกรอกข้อมูล */
+input[type="text"].username ,
+input[type="email"],
+input[type="password"] {
+    color: #6C7BCC;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 20px;
+  border: 2px solid #aaa;
+  outline: none;
+  font-size: 14px;
+}
+
+/* ปุ่ม Login (สีม่วงเดิม) */
+.login-btn {
+  background-color: #7979d7;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* ตัวคั่นข้อความ */
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 20px 0 10px;
+  color: #666;
+  font-size: 13px;
+}
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #aaa;
+}
+.divider::before {
+  margin-right: 10px;
+}
+.divider::after {
+  margin-left: 10px;
+}
+
+
+.signup-link {
+  display: block;
+  padding: 12px;
+  margin-top: 5px;
+  background-color: #fff9e6;
+  border: 2px solid #7979d7;
+  border-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #7979d7;       
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .login-box {
+    padding: 30px 20px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  .login-btn,
+  .signup-link {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,145 @@
+@font-face {
+    font-family: 'pg newport';
+    src: url('./public/PG Newport DEMO.ttf');
+}
+
+@font-face {
+    font-family: 'kanit';
+    src: url('Kanit-Regular.ttf');
+}
+
+.body-edit {
+    background-color: #f6ebfd;
+    margin: 0;
+    padding: 0;
+    font-family: 'kanit', sans-serif;
+}
+
+.topbar {
+    background-color: #f6d96b;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #000;
+    width: 100%;
+}
+
+.user-info-edit {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+}
+
+.username-edit {
+    font-size: 24px;
+    color: rgb(0, 0, 0);
+}
+.person-edit {
+    width: 50px;
+}
+.box-edit {
+    width: 700px;
+    max-width: 90%;
+    margin: 40px auto;
+    background-color: white;
+    border: 1.5px solid #000;
+    border-radius: 20px;
+    padding: 30px 40px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header-edit {
+    font-family: 'pg newport';
+    font-size: 32px;
+    text-align: center;
+    color: black;
+    -webkit-text-stroke: 0.8px white;
+    margin-bottom: 25px;
+}
+
+.box-2-edit {
+    width: 100%;
+}
+
+.form-edit {
+    margin-bottom: 25px;
+}
+
+.topic-form-edit {
+    font-family: 'kanit';
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.rubhiew-from-edit {
+    box-sizing: border-box;
+    width: 100%;
+    height: 45px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #000;
+    border-radius: 20px;
+    background: #FFFFFF;
+    font-family: 'kanit';
+}
+
+.rubhiew-from-edit::placeholder {
+    color: #888;
+}
+
+.row {
+    display: flex;
+    gap: 20px;
+}
+
+.col {
+    flex: 1;
+}
+
+.submit-btn-edit {
+    font-family: 'pg newport';
+    font-size: 24px;
+    padding: 10px 0;
+    width: 240px;
+    margin: 10px auto 0;
+    display: block;
+    border: 2px solid #772929;
+    background-color: #caa5ec;
+    color: white;
+    border-radius: 30px;
+    box-shadow: 2px 4px 0px #925fbe;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: 0.2s;
+}
+
+.submit-btn-edit:hover {
+    background-color: #b992e6;
+}
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .submit-btn-edit {
+        width: 100%;
+    }
+}
+
+.back-edit {
+    font-family: 'Kanit';
+    font-size: 1.5rem;
+    margin: 1.5rem;
+    color: #000000;
+    top: 0;
+    margin-left: auto;
+}

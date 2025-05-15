@@ -1,0 +1,44 @@
+@font-face {
+    font-family: 'pg newport' ;
+    src: url('./public/PG.ttf');
+}
+
+.body-aboutus {
+    background-color: #FEF4F5;
+    font-family: 'pg newport';
+    text-align: center;
+}
+
+.container-aboutus {
+    background-image: url(../assets/bag.png);
+    width: auto;
+    height: 1000px;
+    padding: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 50px;
+}
+
+
+.header-aboutus {
+    line-height: 300px;
+}
+
+.name-form.name {
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    line-height: 60px;
+}
+
+.topic-aboutus {
+    justify-content: center;
+    text-align: center;
+    font-size: 50px;
+    color: white;
+    -webkit-text-stroke: 2px black;
+    padding-top: 300px;
+    line-height: 100px
+}
+

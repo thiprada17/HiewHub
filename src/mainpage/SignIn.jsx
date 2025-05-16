@@ -46,6 +46,7 @@ export default function Login() {
 
 
             const authToken = localStorage.getItem('token')
+            
             const response_2 = await axios.get('http://localhost:3000/api/users', {
                 headers: {
                     'authorization': `Bearer ${authToken}`

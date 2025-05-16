@@ -9,7 +9,6 @@ export default function FormRunner() {
   const [loading, setLoading] = useState(false);
 
   const storedUserId = localStorage.getItem('user_id');
-  console.log(storedUserId)
 
   const [formData, setFormData] = useState({
     user_id: storedUserId,
@@ -36,7 +35,6 @@ export default function FormRunner() {
     } else {
       setFormData({ ...formData, [name]: value });
     }
-    console.log(formData);
   };
 
   const handleSubmit = async (e) => {
@@ -52,7 +50,7 @@ export default function FormRunner() {
           'Content-Type': 'application/json',
         }
       });
-      console.log('Response from server:', response.data);
+      console.log('Response Data Post from server:', response.data);
 
       messageDOM.innerText = "ประกาศรับหิ้วสำเร็จ!!\nSuccessfully!!";
       messageDOM.className = "message success";
@@ -74,6 +72,7 @@ export default function FormRunner() {
   return (
     <div className='body runner min-h-screen w-full bg-[#F6A9C0]'>
       <Link className='back' to="/mainrunner"> กลับหน้าหลัก</Link>
+      
       <div className="box runner">
         <div className="header">ประกาศรับหิ้ว</div>
 

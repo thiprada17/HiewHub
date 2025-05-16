@@ -21,7 +21,6 @@ export default function SignUp() {
             ...prevState,
             [name]: value
         }));
-        console.log(userData);
     };
 
     const handleSubmit = async (e) => {
@@ -38,9 +37,8 @@ export default function SignUp() {
                 }
             });
 
-            console.log('Response from server:', response.data);
+            console.log('Response Data Post from server: ', response.data);
             localStorage.setItem('username', response.data.username);
-
 
             messageDOM.innerText = "ลงทะเบียนสำเร็จ!!\nSuccessfully!!";
             messageDOM.className = "message success";
@@ -52,7 +50,7 @@ export default function SignUp() {
 
         } catch (error) {
             console.error('Error sending data:', error);
-            alert('Login failed. Please try again.');
+            alert('Register failed. Please try again.');
         } finally {
             setLoading(false);
         }

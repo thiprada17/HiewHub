@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: 'PG';
-  src: url('./public/PG.ttf');
+  src: url('PG.ttf');
 }
 
 @font-face {

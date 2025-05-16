@@ -5,7 +5,7 @@ app.use(express.json());
 const bodyParser = require('body-parser')
 const mysql = require('mysql2/promise')
 
-const cors = require('cors');  
+const cors = require('cors');
 const { use } = require('react');
 app.use(cors());
 
@@ -13,79 +13,78 @@ const jwt = require('jsonwebtoken')
 const session = require("express-session");
 
 app.use(
-  session({
-    secret: "secret",
-    resave: false,
-    saveUninitialized: true,
-  }),
+    session({
+        secret: "secret",
+        resave: false,
+        saveUninitialized: true,
+    }),
 );
 
 const secret = "mysecret";
 
 let conn = null
 const initMySQL = async () => {
-    conn = await mysql.createConnection ({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'hiewhub',
-    port : 3306
+    conn = await mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: 'root',
+        database: 'hiewhub',
+        port: 3306
     })
 }
 
-/// RUNNER
+/// RUNNER PART ///
 
-// Read ข้อมูลทั้งหมดจาก post
+    // Read (Container) ข้อมูลทั้งหมดจาก post ฝั่งผู้รับหิ้ว 
 app.get('/post', async (req, res) => {
     try {
-    // get post ในรูปแบบ json
-    const results = await conn.query('SELECT * FROM runner')
-    res.json(results[0])
+        const results = await conn.query('SELECT * FROM runner')
+        res.json(results[0])
     } catch (error) {
-        console.error("Error fetching posts:", error);
+        console.error("Get posts Error :", error);
     }
-    
+
 })
 
+    // Read (PostRunner) รับข้อมูลโพสต์ทั้งหมดเฉพาะ user ที่ล็อกอิน
 app.get('/post/:user_id', async (req, res) => {
-  try {
-    const { user_id } = req.params;
-    const [results] = await conn.query('SELECT * FROM runner WHERE user_id = ?', [user_id]);
-    res.json(results);
-  } catch (error) {
-    res.status(500).json({ message: 'Error fetching user posts', error: error.message });
-  }
+    try {
+        const { user_id } = req.params;
+        const [results] = await conn.query('SELECT * FROM runner WHERE user_id = ?', [user_id]);
+
+        res.json(results);
+    } catch (error) {
+        res.status(500).json({ 
+            message: 'Get fetching user posts Error',
+            error: error.message });
+    }
 })
 
 
-// Creat ข้อมูลลงใน posts
+    // Create (FormRunner) เพิ่มข้อมูลที่ผู้ใช้เพิ่มจาก from
 app.post('/post', async (req, res) => {
     try {
         const data = req.body;
-        console.log(data)    
         const results = await conn.query('INSERT INTO runner SET ?', data);
 
         res.json({
             message: 'Insert Success',
             data: results
-    });    
+        });
     } catch (error) {
         res.status(500).json({
-          message : "error somthing wrong",
-          errorMessage : error.message
+            message: "error somthing wrong",
+            errorMessage: error.message
         })
-        
+
     }
 });
 
 
-
-// Update 
+    // Update (EditRunner) 
 app.put('/post/:id', async (req, res) => {
     try {
-        // รับค่า id จาก param
         let id = req.params.id
-        // updateUser = อ่านข้อมูลจากหน้า body
         let updateUser = req.body
 
         const results = await conn.query('UPDATE runner SET ? WHERE id = ?', [updateUser, id]);
@@ -93,94 +92,91 @@ app.put('/post/:id', async (req, res) => {
         res.json({
             message: 'Update Success',
             data: results[0]
-    })
+        })
     } catch (error) {
         res.status(500).json({
-          message : "error somthing wrong",
-          errorMessage : error.message
+            message: "error somthing wrong",
+            errorMessage: error.message
         })
-        
+
     }
 })
 
 
-
-// delete 
+    // Delete (PostRunner)
 app.delete('/post/:id', async (req, res) => {
     try {
         let id = req.params.id
-        let user_id = req.params.user_id
-
 
         const [results] = await conn.query('DELETE FROM runner WHERE id = ?', [id]);
 
         res.json({
             message: 'Delete sucsess',
             data: results[0]
-    })
+        })
     } catch (error) {
         res.status(500).json({
-          message : "error somthing wrong",
-          errorMessage : error.message
+            message: "error somthing wrong",
+            errorMessage: error.message
         })
-        
+
     }
 })
 
 
 
 
-// FINDDDDD
 
-// Read ข้อมูลทั้งหมดจาก FIND
+/// FIND PART ///
+
+    // Read (ContainerFind) ข้อมูลทั้งหมดจาก post ฝั่งผู้ตามหา 
 app.get('/find', async (req, res) => {
     try {
-    // get post ในรูปแบบ json
-    const results = await conn.query('SELECT * FROM find')
-    res.json(results[0])
+        const results = await conn.query('SELECT * FROM find')
+        res.json(results[0])
     } catch (error) {
         console.error("Error fetching posts:", error);
     }
-    
+
 })
 
 
+    // Read (PostFind) รับข้อมูลโพสต์ทั้งหมดเฉพาะ user ที่ล็อกอิน
 app.get('/find/:user_id', async (req, res) => {
-  try {
-    const { user_id } = req.params;
-    const [results] = await conn.query('SELECT * FROM find WHERE user_id = ?', [user_id]);
-    res.json(results);
-  } catch (error) {
-    res.status(500).json({ message: 'Error fetching user posts', error: error.message });
-  }
+    try {
+        const { user_id } = req.params;
+        const [results] = await conn.query('SELECT * FROM find WHERE user_id = ?', [user_id]);
+        res.json(results);
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching user posts', error: error.message });
+    }
 })
 
 
-// Crate ข้อมูลลงใน posts
+    // Create (FormFind) เพิ่มข้อมูลที่ผู้ใช้เพิ่มจาก from
 app.post('/find', async (req, res) => {
     try {
         const data = req.body;
-        console.log(data)    
+        console.log(data)
         const results = await conn.query('INSERT INTO find SET ?', data);
 
         res.json({
             message: 'Insert Success',
             data: results
-    });    
+        });
     } catch (error) {
         res.status(500).json({
-          message : "error somthing wrong",
-          errorMessage : error.message
+            message: "error somthing wrong",
+            errorMessage: error.message
         })
     }
 });
 
-// Update 
+    // Update (EditFind)  
 app.put('/find/:id', async (req, res) => {
     try {
-        // รับค่า id จาก param
+
         let id = req.params.id
-        // updateUser = อ่านข้อมูลจากหน้า body
         let updateUser = req.body
 
         const results = await conn.query('UPDATE find SET ? WHERE id = ?', [updateUser, id]);
@@ -188,52 +184,48 @@ app.put('/find/:id', async (req, res) => {
         res.json({
             message: 'Update Success',
             data: results[0]
-    })
+        })
     } catch (error) {
         res.status(500).json({
-          message : "error somthing wrong",
-          errorMessage : error.message
+            message: "error somthing wrong",
+            errorMessage: error.message
         })
-        
+
     }
 })
 
 
+    // Delete (PostFind)
 app.delete('/find/:id', async (req, res) => {
     try {
         let id = req.params.id
-        let user_id = req.params.user_id
-
 
         const [results] = await conn.query('DELETE FROM find WHERE id = ?', [id]);
 
         res.json({
             message: 'Delete sucsess',
             data: results[0]
-    })
+        })
     } catch (error) {
         res.status(500).json({
-          message : "error somthing wrong",
-          errorMessage : error.message
+            message: "error somthing wrong",
+            errorMessage: error.message
         })
-        
+
     }
 })
 
 
 
-/// sign in
+/// SIGN IN ///
 
+    // (SignIn) ตรวจสอบรหัสผ่าน และสร้าง token
 app.post('/api/login', async (req, res) => {
     try {
-
         const { email, password } = req.body
-        console.log(email)
-        
+
         const [results] = await conn.query('SELECT * from users where email = ?', [email])
         const userData_db = results[0]
-        console.log(userData_db)
-
 
         if (!userData_db) {
             return res.status(401).json({
@@ -246,57 +238,53 @@ app.post('/api/login', async (req, res) => {
                 message: 'Incorrect password'
             });
         }
-        const token = jwt.sign({ email, role: 'admin'}, secret, { expiresIn: '1h'})
+
+        const token = jwt.sign({ email, role: 'admin' }, secret, { expiresIn: '1h' })
 
         if (userData_db.password == password) {
             res.json({
-            message: 'Login successful',
-            token,
-            user: {
-                id: userData_db.id,
-                user_id : userData_db.user_id,
-                email: userData_db.email,
-                username: userData_db.username
-            }
-        });
+                message: 'Login successful',
+                token : token,
+                user: {
+                    id: userData_db.id,
+                    user_id: userData_db.user_id,
+                    email: userData_db.email,
+                    username: userData_db.username
+                }
+            });
         }
-
-
     } catch {
         console.error(error);
         res.status(500).json({
-            message: 'Server error'
+            message: 'error something wrong',
+            errorMessage: error.message
         });
     }
 })
 
+    // เก็บข้อมูล (SignIn) ตรวจสอบ token และรับ user
 app.get('/api/users', async (req, res) => {
     try {
         const authHeader = req.headers['authorization']
         let authToken = ''
-       
+
         if (authHeader) {
             authToken = authHeader.split(' ')[1]
-        } 
-        console.log(authToken)
-        const user = jwt.verify(authToken, secret)
-        console.log(user)
-
-        
-        const [Checkresults] = await conn.query('SELECT * FROM users where email = ?', user.email)
-
-        if (!Checkresults[0]) {
-            throw { message: 'user not found'}
         }
-        console.log(Checkresults)
+
+        const user = jwt.verify(authToken, secret)
+        const [CheckUser] = await conn.query('SELECT * FROM users where email = ?', user.email)
+
+        if (!CheckUser[0]) {
+            throw { message: 'user not found' }
+        }
 
         const [results] = await conn.query('SELECT * FROM users')
         res.json({
-            user : results
+            user: results
         })
 
     } catch (error) {
-        console.log('error', error)
         res.status(403).json({
             message: 'Authentication fail',
             error
@@ -305,22 +293,22 @@ app.get('/api/users', async (req, res) => {
 })
 
 
-/// sign up
+/// SIGN UP ///
 
+    // (SignUp) สร้าง user
 app.post('/api/register', async (req, res) => {
     try {
         const data = req.body;
-        console.log(data)    
         const results = await conn.query('INSERT INTO users SET ?', data);
 
         res.json({
             message: 'Insert Success',
             data: results
-    });    
+        });
     } catch (error) {
         res.status(500).json({
-          message : "error somthing wrong",
-          errorMessage : error.message
+            message: "error somthing wrong",
+            errorMessage: error.message
         })
     }
 });

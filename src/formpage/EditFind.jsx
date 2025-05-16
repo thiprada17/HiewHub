@@ -28,7 +28,6 @@ export default function EditFind() {
         contact: ''
     });
 
-
     const handleChange = (e) => {
         const { name, value } = e.target;
 
@@ -78,8 +77,6 @@ export default function EditFind() {
                 </div>
                 <Link className="back-edit" to="/mainrunner">กลับหน้าหลัก</Link>
             </div>
-
-
 
 
             <div className="box-edit">

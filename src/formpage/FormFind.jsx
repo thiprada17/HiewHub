@@ -9,7 +9,6 @@ export default function FormFind() {
   const [loading, setLoading] = useState(false);
 
   const storedUserId = localStorage.getItem('user_id');
-  console.log(storedUserId)
 
   const [formData, setFormData] = useState({
     user_id : storedUserId,
@@ -49,7 +48,7 @@ export default function FormFind() {
           'Content-Type': 'application/json',
         }
       });
-      console.log('Response from server:', response.data);
+      console.log('Response Data Post from server: ', response.data);
 
       messageDOM.innerText = "ประกาศตามหาสำเร็จ!!\nSuccessfully!!";
       messageDOM.className = "message success";

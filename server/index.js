@@ -262,6 +262,21 @@ app.post('/api/login', async (req, res) => {
     }
 })
 
+app.get('/api/allusers', async (req, res) => {
+    try {
+        const [AllUser] = await conn.query('SELECT * FROM users')
+        res.json({
+            user: AllUser
+        })
+
+    } catch (error) {
+        res.status(403).json({
+            message: 'Get users fail',
+            error
+        })
+    }
+})
+
     // เก็บข้อมูล (SignIn) ตรวจสอบ token และรับ user
 app.get('/api/users', async (req, res) => {
     try {
@@ -312,6 +327,7 @@ app.post('/api/register', async (req, res) => {
         })
     }
 });
+
 
 const port = 3000
 app.listen(port, async (req, res) => {

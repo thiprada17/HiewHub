@@ -105,7 +105,7 @@ export default function FormRunner() {
                 />
               </div>
               <div className="form flex-1">
-                <div className="topic-form">วัน-เวลา ที่ต้องการรับ</div>
+                <div className="topic-form">วัน-เวลา ที่ต้องกลับ</div>
                 <input
                   name="datetime"
                   value={formData.datetime}

@@ -44,7 +44,7 @@ export default function SignUp() {
             messageDOM.className = "message success";
 
             setTimeout(() => {
-                navigate('/signin');
+                navigate('/');
             }, 800);
 
 
